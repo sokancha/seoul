@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관광명소</title>
+</head>
+<body>
+    <h1>키즈 카페 리스트</h1>
+
+    <div id = "districts">
+        <button onclick ="loadData('서대문구')">서대문구</button>
+        <button onclick ="loadData('강동구')">강동구</button>
+        <button onclick ="loadData('성북구')">성북구</button>
+        <button onclick ="loadData('동대문구')">동대문구</button>   
+    </div>
+
+    <div id = "kids-data-list"></div>
+
+    <script>
+        function loadData(구이름) {
+            const url = 구이름 === '전체' ? '/api/kids/' : `/api/kids/?자치구명=${구이름}`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data=> {
+                    const container = document.getElementById('kids-data-list');
+                    container.innerHTML ='';
+                    data.forEach(data => {
+                        const div = document.createElement('div');
+                        div.innerHTML = `<h4>${data.시설명}</h4><p>${data.상세주소}</p><p>${data.자치구명}</p><hr>`;
+                        container.appendChild(div);
+                    });
+                });
+        };
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+.home-wrapper {      /* 전체 틀 */
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: #f5f5f5;
+    overflow: hidden;
+  }
+  
+  /* 텍스트 박스 */
+  .text-box {
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    transform: translateY(-50%);
+    max-width: 500px;
+    z-index: 10;
+  }
+  
+  .text-box h1 {
+    font-size: 1.3rem;
+    color: white;
+    background-color: black;
+    width: fit-content;     /* 텍스트 길이에 맞게 너비 자동 조정 */
+    padding: 0.3rem 0.6rem; /* 텍스트 주변에 여백 추가 (가독성↑) */
+    line-height: 1.4;       /* 텍스트 줄 간격을 자연스럽게 조정 */
+    border-radius: 10px;     
+  }
+  
+  
+  .text-box p {
+    font-size: 2.4rem; /* 줄인 폰트 크기 */
+    margin: 3.0rem 0 0.7rem 0; /* 간격 조정 */
+    color: black;
+    line-height: 1.6;
+  }
+  
+  .text-box h2 {
+    font-size: 1rem;
+    margin: 0.7rem 0;
+    color: #122793;
+    line-height: 1.6;
+    border-bottom: 2px solid #030000; /* 밑줄 */
+    padding-bottom: 0.2rem; /* 밑줄과 글자 사이 간격 */
+  }
+  
+
+  
+  /* 슬라이더 */
+  .slider-container {
+    position: fixed;
+    height: 470px;
+    bottom: 110px;
+    right: 30px;
+    width: 700px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 5;
+    background-color: white;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 1.7s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .dots {
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+  }
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .dot.active {
+    background: #007bff;
+  }
+  
