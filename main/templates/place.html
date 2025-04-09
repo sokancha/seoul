@@ -1,40 +1,81 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>관광명소</title>
+    <title>관광거리</title>
+    <link rel="stylesheet" href="{% static 'css/place.css' %}">
 </head>
 <body>
-    <h1>키즈 카페 리스트</h1>
+    <div class = "container">
+        <div class="list-section">
+            <div class = "result-count">총 <span>0</span>건</div>
+            <div id="tourist_street_table-data-list"></div>
+        </div>
+        <div class="filter-section">
+          <div class="filter-title">지역 선택</div>
+            <div class="region-filter">
+                <div id = "districts">
+                <button onclick = "loadData('강남구')">강남구</button>
+                <button onclick = "loadData('도봉구')">도봉구</button>
+                <button onclick = "loadData('동대문구')">동대문구</button>
+                <button onclick = "loadData('동작구')">동작구</button>
+                <button onclick = "loadData('마포구')">마포구</button>
+                <button onclick = "loadData('서대문구')">서대문구</button>
+                <button onclick = "loadData('서초구')">서초구</button>
+                <button onclick = "loadData('성동구')">성동구</button>
+                <button onclick = "loadData('성북구')">성북구</button>
+                <button onclick = "loadData('송파구')">송파구</button>
+                <button onclick = "loadData('양천구')">양천구</button>
+                <button onclick = "loadData('강동구')">강동구</button>
+                <button onclick = "loadData('영등포구')">영등포구</button>
+                <button onclick = "loadData('용산구')">용산구</button>
+                <button onclick = "loadData('은평구')">은평구</button>
+                <button onclick = "loadData('종로구')">종로구</button>
+                <button onclick = "loadData('중구')">중구</button>
+                <button onclick = "loadData('중랑구')">중랑구</button>
+                <button onclick = "loadData('강북구')">강북구</button>
+                <button onclick = "loadData('강서구')">강서구</button>
+                <button onclick = "loadData('관악구')">관악구</button>
+                <button onclick = "loadData('광진구')">광진구</button>
+                <button onclick = "loadData('구로구')">구로구</button>
+                <button onclick = "loadData('금천구')">금천구</button>
+                <button onclick = "loadData('노원구')">노원구</button>
+                </div>
+            </div>
+          </div>
+        </div>
 
-    <div id = "districts">
-        <button onclick ="loadData('서대문구')">서대문구</button>
-        <button onclick ="loadData('강동구')">강동구</button>
-        <button onclick ="loadData('성북구')">성북구</button>
-        <button onclick ="loadData('동대문구')">동대문구</button>   
-    </div>
+        <script>
+            function loadData(구이름) {
+                const url = 구이름 === "전체" ? '/api/tourist_street_table/' : `/api/tourist_street_table/?행정구=${구이름}`;
+                
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        const container = document.getElementById('tourist_street_table-data-list');
+                        container.innerHTML = '';
+    
+                        const countSpan = document.querySelector('.result-count span');
+                        countSpan.textContent = data.length;
 
-    <div id = "kids-data-list"></div>
-
-    <script>
-        function loadData(구이름) {
-            const url = 구이름 === '전체' ? '/api/kids/' : `/api/kids/?자치구명=${구이름}`;
-            fetch(url)
-                .then(response => response.json())
-                .then(data=> {
-                    const container = document.getElementById('kids-data-list');
-                    container.innerHTML ='';
-                    data.forEach(data => {
+                        data.forEach(item => {
                         const div = document.createElement('div');
-                        div.innerHTML = `<h4>${data.시설명}</h4><p>${data.상세주소}</p><p>${data.자치구명}</p><hr>`;
+                        div.className = 'card';
+                        div.innerHTML = `
+                            <img src="img/sungnyemun.jpg" class="thumb" />
+                            <div class = "card-info">
+                                <h3><a href ="/place/${item.id}/">${item.최종표기명}</a></h3>
+                                <p>${item.행정구}</p>
+                                <p>${item.행정동}</p>
+                            </div>
+                            `;
                         container.appendChild(div);
                     });
                 });
-        };
-
-    </script>
-
+            }
+        </script>
 
 </body>
 </html>
