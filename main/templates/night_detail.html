@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="{% static 'css/flower_place.css' %}"> 
+</head>
+<body>
+    {% include 'menu.html' %}
+    <header>    
+        <h2>{{ night.장소명 }}</h2>
+        <p class="sub-text"><p>{{ night.분류 }}</p>
+        <p>{{ night.자치구 }}</p></p>
+    </header>
+
+    <main>
+        <div class="divider"></div>
+        <h3 class="subtitle">사진보기</h3>
+        <h3 class="subtitle">상세정보</h3>
+        <div class="divider"></div>
+        <div class="image-gallery">
+            <img src="{% static 'img/river1.jpg' %}" alt="한강 이미지 1" />
+            <img src="{% static 'img/river2.jpg' %}" alt="한강 이미지 2" />
+            <img src="{% static 'img/river3.jpg' %}" alt="한강 이미지 3" />
+        </div>
+        <section class="detail-info">
+            
+            <h3 class="detail-info-title">상세정보</h3>
+            <div class="divider1"></div>
+            <p>여의도 한강공원 벚꽃축제는 서울에서 가장 유명한 봄 행사 중 하나로, 매년 봄에 여의도 한강공원에서 개최됩니다. 이 축제는 특히 벚꽃이 만개하는 시기에 맞춰 진행되어, 서울 시민들과 관광객들에게 매우 인기 있는 행사입니다. 여의도 한강공원 벚꽃축제는 보통 4월 초부터 중순까지 열리며, 이 시기에 한강공원 곳곳에 벚꽃이 만개합니다. 공원은 벚꽃 나무들로 가득 차고, 그 꽃들이 흐드러지게 피어있는 모습은 매우 아름답습니다. 벚꽃을 배경으로 한 다양한 문화 행사와 활동도 함께 진행되며, 축제 기간 동안 공원은 많은 사람들로 붐빕니다.</p>
+            
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.173487074786!2d126.93153531532818!3d37.52066597980177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca26d6f94e395%3A0x2b60b52024993572!2z7ISc7Jq47IiY7Z6w!5e0!3m2!1sko!2skr!4v1673968500932!5m2!1sko!2skr" width="600" height="450" style="border:0; display: block; margin: 0 auto;" allowfullscreen="" loading="lazy"></iframe>
+
+           
+
+
+            <h3>주요 정보</h3>
+            <ul class="info-list">
+                <li><strong>위치:</strong> 서울특별시 영등포구 여의도동 1-1</li>
+                <li><strong>주요 교통:</strong> 여의도역(5호선, 9호선), 국회의사당역(9호선) </li>
+                <li><strong>입장:</strong> 무료 </li>
+                <li><strong>주요 장소:</strong> 자전거 대여소, BBQ공간, 유람선</li>
+            </ul>
+
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2025 서울 여행 가이드. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
