@@ -1,18 +1,32 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import 키즈카페
-from .serializers import 키즈카페Serializer
+from .models import 관광거리
+from .serializers import 관광거리Serializer
+from .models import 야경명소
+from .serializers import 야경명소Serializer
 
-class 키즈카페API(APIView) :
+
+class 관광거리API(APIView) :
     def get(self, request) :
-        자치구 = request.GET.get('자치구명')
-        if 자치구 :
-            data = 키즈카페.objects.filter(자치구명=자치구)
+        행정구 = request.GET.get('행정구')
+        if 행정구 :
+            data = 관광거리.objects.filter(행정구=행정구)
         else :
-            data = 키즈카페.objects.all()
-        serializer = 키즈카페Serializer(data, many = True)
+            data = 관광거리.objects.all()
+        serializer = 관광거리Serializer(data, many = True)
         return Response(serializer.data)
+
+class 야경명소API(APIView) :
+    def get(self,request) :
+        자치구 = request.GET.get('자치구')
+        if 자치구 :
+            data = 야경명소.objects.filter(자치구 = 자치구)
+        else :  
+            data = 야경명소.objects.all()
+        serializer = 야경명소Serializer(data, many = True)
+        return Response(serializer.data)
+        
 
 def login_view(request):
     return render(request, 'login.html')
@@ -36,3 +50,10 @@ def flower_place_view(request):
 def trip_course_view(request):
     return render(request, 'trip_course.html')
 
+def place_detail(request, pk) :
+    place = 관광거리.objects.get(pk=pk)
+    return render(request, 'place_detail.html', {'place' : place})
+
+def night_detail(request, pk) :
+    night = 야경명소.objects.get(pk=pk)
+    return render(request, 'night_detail.html', {'night' : night})
