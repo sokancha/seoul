@@ -66,6 +66,7 @@ class 문화공간(models.Model):
 class 야경명소(models.Model):
     id = models.AutoField(primary_key=True)
     분류 = models.TextField(blank=True, null=True)
+    자치구 = models.TextField(blank=True, null=True)
     장소명 = models.TextField(blank=True, null=True)
     주소 = models.TextField(blank=True, null=True)
     전화번호 = models.TextField(blank=True, null=True)
@@ -84,20 +85,16 @@ class 야경명소(models.Model):
         managed = False
         db_table = 'night_table'
 
-class 키즈카페(models.Model):
+class 유사한야경명소(models.Model):
     id = models.AutoField(primary_key=True)
-    시설명 = models.TextField(blank=True, null=True)
-    자치구명 = models.TextField(blank=True, null=True)
-    행정동명 = models.TextField(blank=True, null=True)
-    우편번호 = models.TextField(blank=True, null=True)
-    기본주소 = models.TextField(blank=True, null=True)
-    상세주소 = models.TextField(blank=True, null=True)
-    연락처 = models.TextField(blank=True, null=True)
-    사용료무료여부 = models.TextField(blank=True, null=True)
-    운영일 = models.TextField(blank=True, null=True)
-    휴관일 = models.TextField(blank=True, null=True)
-    신청가능연령 = models.TextField(blank=True, null=True)
-
-    class Meta:
+    base = models.TextField(blank=True, null=True)
+    추천1 = models.TextField(blank=True, null=True) 
+    추천2 = models.TextField(blank=True, null=True)
+    추천3 = models.TextField(blank=True, null=True)
+    추천4 = models.TextField(blank=True, null=True)
+    추천5 = models.TextField(blank=True, null=True)
+    
+    class Meta :
         managed = False
-        db_table = 'kids'
+        db_table = 'similar_night_place'
+

@@ -30,12 +30,11 @@ from .models import 야경명소
 class night_able(admin.ModelAdmin):
     list_display = ('장소명',)
     search_fields = ('주소',)
-    list_filter = ('분류',)
+    list_filter = ('자치구',)
 
-from .models import 키즈카페
-@admin.register(키즈카페)
-class kids_table(admin.ModelAdmin) :
-    list_display = ('시설명',)
-    search_fields = ('상세주소',)
-    list_filter = ('자치구명',)
-    
+from .models import 유사한야경명소
+@admin.register(유사한야경명소)
+class similar_night_able(admin.ModelAdmin):
+    list_display = ('base',)
+    search_fields = ('base',)
+    list_filter = ('base',)

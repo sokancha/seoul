@@ -1,0 +1,96 @@
+/* tourist.css */
+.place {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+.place_container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.list-section {
+  flex: 3;
+}
+
+.result-count {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+
+}
+
+.thumb {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.region {
+  font-size: 14px;
+  color: #888;
+}
+
+.tags {
+  font-size: 12px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.places span {
+  display: inline-block;
+  background: #f1f1f1;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin: 2px 4px 2px 0;
+}
+
+.distance {
+  font-size: 13px;
+  color: #666;
+  margin-left: auto;
+  padding-top: 5px;
+}
+
+.filter-section {
+  flex: 1;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.region-filter button {
+  display: inline-block;
+  margin: 4px;
+  padding: 6px 10px;
+  background: #f4f4f4;
+  border-radius: 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
