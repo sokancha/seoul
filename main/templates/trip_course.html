@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'trip_course.css' %}">
+</head>
+<body>
+    <main class="travel-main">
+        <!-- 타이틀 -->
+        <section class="travel-header">
+          <h1>여행코스</h1>
+          <p>테마별 여행 코스를 한눈에 볼 수 있어요.</p>
+        </section>
+      
+        <!-- 카테고리 필터 -->
+        <section class="travel-filter">
+          <button class="filter-btn active">전체</button>
+          <button class="filter-btn">가족여행</button>
+          <button class="filter-btn">역사탐방</button>
+          <button class="filter-btn">맛집탐방</button>
+          <!-- 필요한 만큼 추가 -->
+        </section>
+      
+        <!-- 카드 리스트 -->
+        <section class="travel-cards">
+          <div class="travel-card">
+            <img src="img/sample1.jpg" alt="여행지 이미지">
+            <div class="card-content">
+              <h2>서울 근교 힐링 코스</h2>
+              <p>도심 속에서 즐기는 자연과 힐링의 시간</p>
+              <span class="tag">#힐링 #서울근교</span>
+            </div>
+          </div>
+      
+          <div class="travel-card">
+            <img src="img/sample2.jpg" alt="여행지 이미지">
+            <div class="card-content">
+              <h2>전주 한옥마을 탐방</h2>
+              <p>고즈넉한 전통과 현대가 어우러진 공간</p>
+              <span class="tag">#전통 #전주</span>
+            </div>
+          </div>
+      
+          <!-- 추가 카드들... -->
+        </section>
+      </main>
+      
+</body>
+</html>
