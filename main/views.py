@@ -27,8 +27,7 @@ class 야경명소API(APIView) :
             data = 야경명소.objects.all()
         serializer = 야경명소Serializer(data, many = True)
         return Response(serializer.data)
-        
-
+    
 def login_view(request):
     return render(request, 'login.html')
 
@@ -53,12 +52,33 @@ def trip_course_view(request):
 
 def place_detail(request, pk) :
     place = 관광거리.objects.get(pk=pk)
-    return render(request, 'place_detail.html', {'place' : place})
+    return render(request, 'place_detail.html', {
+        'place' : place,
+        '경도' : place.중심좌표X,
+        '위도' : place.중심좌표Y,
+        })
+
+
+
+
 
 def night_detail(request, pk) :
     night = 야경명소.objects.get(pk=pk)
-    similar_night = 유사한야경명소.objects.get(pk=pk)
+    similar_night = 유사한야경명소.objects.get(base=night.장소명)
+
+    추천장소들 = []
+    for 추천명 in [similar_night.추천1, similar_night.추천2, similar_night.추천3, similar_night.추천4, similar_night.추천5] :
+        try :
+            추천장소 = 야경명소.objects.get(장소명=추천명)
+            추천장소들.append(추천장소)
+        except 야경명소.DoesNotExist :
+            continue
+
     return render(request, 'night_detail.html', {
         'night': night,
         'similar_night': similar_night,
+        '추천장소들' : 추천장소들,
+        '위도' : night.위도,
+        '경도' : night.경도
     })
+
