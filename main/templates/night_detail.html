@@ -17,10 +17,8 @@
     </header>
 
     <main>
-        <div class="divider"></div>
-        <h3 class="subtitle">사진보기</h3>
         <div class="image-gallery">
-            <img src="{% static 'img/river1.jpg' %}" alt="한강 이미지 1" />
+            <img src="{{ night.대표이미지 }}" alt="대표 이미지"/>
         </div>
         <div class="divider"></div>
 
@@ -60,10 +58,14 @@
             <br>
 
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
-            {% for place in 추천장소들 %}
-                <a href="/night/{{ place.id }}/" style="text-decoration: none; color: inherit;">
+            {% for night_place in 추천장소들 %}
+                <a href="/night/{{ night_place.id }}/" style="text-decoration: none; color: inherit;">
                     <div style="width: 180px; border: 1px solid #ddd; border-radius: 10px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                        {{ place.장소명 }}
+                        {{ night_place.장소명 }}
+                        <div class="image-gallery">
+                            <img src="{{ night_place.대표이미지 }}" alt="대표 이미지" />
+                        </div>
+                        
                     </div>  
                 </a>
             {% endfor %}
