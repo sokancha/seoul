@@ -13,6 +13,8 @@ class 관광거리(models.Model):
      행정동 = models.TextField(blank=True, null=True)
      중심좌표X = models.FloatField(blank=True, null=True)
      중심좌표Y = models.FloatField(blank=True, null=True)
+     대표이미지 = models.TextField(blank=True, null=True)
+    
      
      class Meta:
         managed = False
@@ -80,6 +82,7 @@ class 야경명소(models.Model):
     주차안내 = models.TextField(blank=True, null=True)
     위도 = models.FloatField(blank=True, null=True)
     경도 = models.FloatField(blank=True, null=True)
+    대표이미지 = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
