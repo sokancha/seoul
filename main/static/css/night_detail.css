@@ -41,7 +41,7 @@
     margin-top:10px;
     margin-left:5px;
   }
-  
+
   .card-info h3 {
     margin: 0;
     font-size: 18px;
@@ -118,6 +118,7 @@ header .sub-text {
     gap: 15px; /* 이미지 간격 */
     margin-top: 20px;
 }
+
 
 .image-gallery img {
     width: 250px; /* 이미지 크기 조정 */
@@ -220,5 +221,7 @@ ul.info-list li {
 ul.info-list li strong {
   font-weight: bold;
 }
+
+
 
   
