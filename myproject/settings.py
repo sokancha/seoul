@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'child_table',
         'USER': 'root',
-        'PASSWORD' : 'qfadezcwr1324!',
+        'PASSWORD' : '',
         'HOST' : '127.0.0.1',
         'PORT' : '3306',
 
